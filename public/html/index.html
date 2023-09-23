@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="متجر الهدايا الدعائية - اعلي النظم هو متجر يقدم أفضل الهدايا الدعائية والتسويقية لعملائه. تسوق الآن واستمتع بمجموعة متنوعة من الهدايا والخدمات.">
+    <title>متجر الهدايا الدعائية - اعلى النظم</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="../assets/images/gift.png" type="image/x-icon">
+    <style>
+        .navbar {
+            padding: 10px;
+        }
+        .navbar-brand {
+            padding: 0;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+        .navbar-nav {
+            text-align: right;
+        }
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
+        .jumbotron {
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+        .search-container {
+            position: relative;
+            display: inline-block;
+        }
+        .product-search {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 300px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 8px;
+            z-index: 2;
+            direction: rtl;
+        }
+        .search-container.active .product-search {
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
+            .search-container {
+                position: absolute;
+                right: 50%;
+                transform: translateX(50%);
+                top: 50%;
+                margin-top: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/images/Logo_3.png" alt="شعار اعلى النظم" width="120">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-primary" href="#">الرئيسية<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="products.html">المنتجات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="#">الخدمات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="process_contact_form.html">اتصل بنا</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="login.html">تسجيل الدخول</a>
+                </li>
+                <li class="nav-item admin-panel">
+                    <a class="nav-link text-danger" href="admin_panel.html">لوحة الإدارة</a>
+                </li>
+                <li class="nav-item">
+                    <div class="search-container">
+                        <div class="product-search">
+                            <input type="text" placeholder="ابحث عن منتج">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron text-center" style="background-color: #f9feff; padding: 80px 0;">
+        <h1 class="display-4" style="color: #26d6ed;">مرحبًا في متجر الهدايا الدعائية</h1>
+        <p class="lead" style="color: #ff6cc7;">نقدم لكم أفضل الهدايا الدعائية والتسويقية لعملكم.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">تسوق الآن</a>
+    </div>
+    <footer class="text-center py-4 bg-light footer">
+        &copy; 2023 متجر الهدايا الدعائية - اعلى النظم
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const searchContainer = document.querySelector('.search-container');
+        const productSearch = document.querySelector('.product-search');
+
+        searchContainer.addEventListener('click', () => {
+            productSearch.classList.toggle('active');
+            if (productSearch.classList.contains('active')) {
+                productSearch.querySelector('input').focus();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!searchContainer.contains(event.target)) {
+                productSearch.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
